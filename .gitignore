@@ -50,3 +50,21 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+
+# Executables
+*/**/Colleen
+!/**/Colleen.*
+*/**/Sully
+!/**/Sully.*
+*/**/Grace
+!/**/Grace.*
+
+# Data
+*.txt
+
+
+# Vim
+*tags
+*swo
+*swp
