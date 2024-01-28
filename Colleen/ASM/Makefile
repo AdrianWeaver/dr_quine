@@ -2,6 +2,8 @@ NAME	=	Colleen
 
 SRC		=	Colleen.s
 
+CC		=	clang
+
 AS		=	nasm
 ASFLAGS	=	-felf64 -g
 
@@ -10,6 +12,7 @@ OBJ	=	$(SRC:.s=.o)
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
+		$(CC) $< -lc -o $(NAME)
 
 %.o:		%.s
 	$(AS) $(ASFLAGS) $<
@@ -31,4 +34,7 @@ diff:		$(NAME)
 			./$(NAME) > output.txt
 			diff $(SRC) output.txt
 
-.PHONY: all, clean, fclean, re, test, diff
+debug:
+			gdb ./$(NAME)
+
+.PHONY: all, clean, fclean, re, test, diff, debug
