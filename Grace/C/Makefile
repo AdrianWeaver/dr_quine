@@ -28,8 +28,10 @@ test:		$(NAME)
 			./$(NAME)
 
 diff:		$(NAME)
-			./$(NAME) > output.txt
-			diff $(SRC) output.txt
+			#./$(NAME) > output.txt
+			#diff $(SRC) output.txt
+			./$(NAME)
+			diff $(SRC) Grace_output.txt
 
 .PHONY: all, clean, fclean, re, test, diff
 
