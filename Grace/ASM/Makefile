@@ -3,7 +3,7 @@ NAME	=	Grace
 SRC		=	Grace.s
 
 CC		=	gcc
-CFLAGS	=	-eobfuscated
+#CFLAGS	=	-eobfuscated
 
 AS		=	nasm
 ASFLAGS	=	-felf64 -g
