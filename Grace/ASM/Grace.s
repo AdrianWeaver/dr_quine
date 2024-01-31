@@ -3,10 +3,12 @@ file db "Grace_asm_output.txt", 0
 len: equ $-file
 error_msg db "There was an error in open", 10, 0
 error_len: equ $-error_msg
+printf_test db "This is a printf test", 10, 0
+test_len: equ $-printf_test
 section .text
 extern printf
 extern exit
-global main
+global _start
 
 %macro replace_open 0
 mov	rax,2			;this is the syscall for open
@@ -23,7 +25,9 @@ mov rdx, 0640o
 syscall
 %endmacro
 
-main:
+_start:
+	mov rdi, printf_test
+	call printf wrt ..plt
 	replace_open	;open file and stores fd in rax
 	mov rcx, rax	;saving fd
 	cmp rax, 0		;checking return of open
