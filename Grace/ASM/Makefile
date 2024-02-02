@@ -3,10 +3,10 @@ NAME	=	Grace
 SRC		=	Grace.s
 
 CC		=	gcc
-CFLAGS	=	-nostartfiles
+	CFLAGS	=	-nostartfiles -no-pie
 
 AS		=	nasm
-ASFLAGS	=	-felf64 -g
+ASFLAGS	=	-felf64 -g 
 
 OBJ	=	$(SRC:.s=.o)
 
@@ -28,8 +28,14 @@ re:			clean
 			$(MAKE) all
 
 test:		$(NAME)
-			@cat	$(SRC)
 			./$(NAME)
+			ls -l Grace_asm_output.txt
+			cat  Grace_asm_output.txt
+
+vtest:		$(NAME)
+			valgrind ./$(NAME)
+			ls -l Grace_asm_output.txt
+			cat  Grace_asm_output.txt
 
 diff:		$(NAME)
 			./$(NAME) > output.txt
