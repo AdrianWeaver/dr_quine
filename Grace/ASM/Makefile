@@ -28,6 +28,7 @@ re:			clean
 			$(MAKE) all
 
 test:		$(NAME)
+			cat Grace.s
 			./$(NAME)
 			ls -l Grace_asm_output.txt
 			cat  Grace_asm_output.txt
@@ -39,7 +40,7 @@ vtest:		$(NAME)
 
 diff:		$(NAME)
 			./$(NAME) > output.txt
-			diff $(SRC) output.txt
+			diff -s $(SRC) Grace_asm_output.txt
 
 debug:
 			gdb ./$(NAME)
