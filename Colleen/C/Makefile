@@ -29,7 +29,7 @@ test:		$(NAME)
 
 diff:		$(NAME)
 			./$(NAME) > output.txt
-			diff $(SRC) output.txt
+			diff -s $(SRC) output.txt
 
 .PHONY: all, clean, fclean, re, test, diff
 

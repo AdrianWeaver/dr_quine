@@ -14,6 +14,6 @@ test:		$(SRC)
 
 diff:		
 			@$(RUNNER) $(SRC) > output.txt
-			diff $(SRC) output.txt
+			diff -s $(SRC) output.txt
 
 .PHONY: all, test, diff

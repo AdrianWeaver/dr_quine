@@ -3,7 +3,7 @@ NAME	=	Grace
 SRC		=	Grace.s
 
 CC		=	gcc
-	CFLAGS	=	-nostartfiles -no-pie
+CFLAGS	=	-nostartfiles -no-pie
 
 AS		=	nasm
 ASFLAGS	=	-felf64 -g 
@@ -20,6 +20,7 @@ $(NAME):	$(OBJ)
 
 clean:
 			rm -rf $(OBJS)
+			rm -rf previous_Grace_version
 
 fclean:		clean
 			rm -rf $(NAME)
@@ -28,21 +29,17 @@ re:			clean
 			$(MAKE) all
 
 test:		$(NAME)
-			cat Grace.s
 			./$(NAME)
-			ls -l Grace_asm_output.txt
-			cat  Grace_asm_output.txt
 
 vtest:		$(NAME)
 			valgrind ./$(NAME)
-			ls -l Grace_asm_output.txt
-			cat  Grace_asm_output.txt
 
 diff:		$(NAME)
-			./$(NAME) > output.txt
-			diff -s $(SRC) Grace_asm_output.txt
+			cat $(SRC) > previous_Grace_version
+			./$(NAME)
+			diff -s $(SRC) previous_Grace_version
 
 debug:
 			gdb ./$(NAME)
 
-.PHONY: all, clean, fclean, re, test, diff, debug
+.PHONY: all, clean, fclean, re, test, vtest, diff, debug

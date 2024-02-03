@@ -32,7 +32,7 @@ test:		$(NAME)
 
 diff:		$(NAME)
 			./$(NAME) > output.txt
-			diff $(SRC) output.txt
+			diff -s $(SRC) output.txt
 
 debug:
 			gdb ./$(NAME)

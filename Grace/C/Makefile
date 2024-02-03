@@ -16,6 +16,7 @@ $(NAME):	$(OBJ)
 
 clean:
 			rm -rf $(OBJS)
+			rm -rf previous_Grace_version
 
 fclean:		clean
 			rm -rf $(NAME)
@@ -24,16 +25,17 @@ re:			clean
 			$(MAKE) all
 
 test:		$(NAME)
-			@cat	$(SRC)
 			./$(NAME)
+	
+vtest:		$(NAME)
+			valgrind ./$(NAME)
 
 diff:		$(NAME)
-			#./$(NAME) > output.txt
-			#diff $(SRC) output.txt
+			cat $(SRC) > previous_Grace_version
 			./$(NAME)
-			diff $(SRC) Grace_output.txt
+			diff -s $(SRC) previous_Grace_version
 
-.PHONY: all, clean, fclean, re, test, diff
+.PHONY: all, clean, fclean, re, test, vtest, diff
 
 
 
