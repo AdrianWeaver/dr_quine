@@ -1,4 +1,4 @@
-SRC	=	Colleen.py
+SRC	=	Grace.py
 
 RUNNER = python3
 
@@ -8,11 +8,11 @@ run:		$(SRC)
 			$(RUNNER) $(SRC)
 
 test:		$(SRC)
-			@cat	$(SRC)
 			$(MAKE) run
 
 diff:		
-			@$(RUNNER) $(SRC) > output.txt
-			diff -s -y $(SRC) output.txt
+			cat $(SRC) > previous_Grace.py
+			@$(RUNNER) $(SRC)
+			-diff -y -s $(SRC) previous_Grace.py
 
 .PHONY: all, test, diff
