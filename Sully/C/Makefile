@@ -3,8 +3,9 @@ NAME	=	Sully
 SRC		=	Sully.c
 
 CC		=	clang
+CFLAGS	=	-Wall -Wextra -Werror
 
-OBJ	=	$(SRCS:.c=.o)
+OBJ	=	$(SRC:.c=.o)
 
 all:	$(NAME)
 
