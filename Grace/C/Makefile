@@ -1,14 +1,15 @@
 NAME	=	Grace
 
-SRC	=	Grace.c
+SRC		=	Grace.c
 
 CC		=	clang
 
-OBJ	=	$(SRCS:.c=.o)
+OBJ	=	$(SRC:.c=.o)
 
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
+	$(CC) $(CFLAGS) $^ -o $@
 
 %.o:		%.c
 	$(CC) $(CFLAGS) $< -o $@ -c
@@ -21,7 +22,7 @@ clean:
 fclean:		clean
 			rm -rf $(NAME)
 			
-re:			clean
+re:			fclean
 			$(MAKE) all
 
 test:		$(NAME)

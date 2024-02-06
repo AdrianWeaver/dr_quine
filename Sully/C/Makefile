@@ -10,19 +10,20 @@ OBJ	=	$(SRC:.c=.o)
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
+	$(CC) $(CFLAGS) $^ -o $@
 
 %.o:		%.c
 	$(CC) $(CFLAGS) $< -o $@ -c
 
 
 clean:
-			rm -rf $(OBJS)
+			rm -rf $(OBJ)
 			rm -rf Sully?.c
 
 fclean:		clean
 			rm -rf $(NAME)
 			
-re:			clean
+re:			fclean
 			$(MAKE) all
 
 test:		$(NAME)
