@@ -65,6 +65,7 @@ push 34
 push 10		;cc
 push 34
 mov rcx,r14
+xor rax,rax
 call dprintf
 mov rcx,145
 sa:pop rax
