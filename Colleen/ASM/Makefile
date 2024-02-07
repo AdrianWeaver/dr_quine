@@ -18,7 +18,7 @@ $(NAME):	$(OBJ)
 	$(AS) $(ASFLAGS) $<
 
 clean:
-			rm -rf $(OBJS)
+			rm -rf $(OBJ)
 
 fclean:		clean
 			rm -rf $(NAME)

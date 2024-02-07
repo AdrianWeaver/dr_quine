@@ -2,8 +2,8 @@ NAME	=	Grace
 
 SRC		=	Grace.s
 
-CC		=	gcc
-CFLAGS	=	-nostartfiles -no-pie
+CC		=	clang
+CFLAGS	=	-nostartfiles
 
 AS		=	nasm
 ASFLAGS	=	-felf64 -g 
@@ -19,7 +19,7 @@ $(NAME):	$(OBJ)
 	$(AS) $(ASFLAGS) $<
 
 clean:
-			rm -rf $(OBJS)
+			rm -rf $(OBJ)
 			rm -rf previous_Grace_version
 
 fclean:		clean
