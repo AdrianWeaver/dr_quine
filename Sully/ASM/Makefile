@@ -3,7 +3,7 @@ NAME	=	Sully
 SRC		=	Sully.s
 
 CC		=	gcc
-CFLAGS	=	-nostartfiles -no-pie
+#CFLAGS	=	-nostartfiles -no-pie
 
 AS		=	nasm
 ASFLAGS	=	-felf64 -g 
@@ -19,7 +19,7 @@ $(NAME):	$(OBJ)
 	$(AS) $(ASFLAGS) $<
 
 clean:
-			rm -rf $(OBJS)
+			rm -rf $(OBJ)
 			rm -rf Sully?.s
 
 fclean:		clean
