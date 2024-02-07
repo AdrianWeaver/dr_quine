@@ -88,29 +88,30 @@ main:
 	mov rsi,01101o
 	mov rdx,0640o
 	syscall ;open
-	mov r12, rax
 	cmp rax,0
 	js quit
+	mov r12, rax
+	print
+	mov rdi, r12
+	mov rax, 3
+	syscall ;close fd
 	mov rax, 57
 	syscall ;fork
 	cmp rax, 0
 	js quit
 	cmp rax, 0
 	je child
-	sub rsp, 64
+	add rsp, 64
 	mov rdi, rax
 	mov rsi, rsp
 	mov rdx, 0
 	call waitpid ;waitpid
+	sub rsp, 64
 	mov rdi, arg8
 	mov rsi, exeptr
 	mov rdx, r13
 	mov rax, 59
 	syscall 	;execve execution
-	add rsp, 64
-	mov rdi, r12
-	mov rax, 2
-	syscall ;close fd
 quit:
 	pop r15
 	pop r14
@@ -119,7 +120,6 @@ quit:
 	mov rdi,0
 	call exit
 child:
-	print
 	mov rsi,cc 
 	mov rdi,argptr
 	mov rdx,r13
