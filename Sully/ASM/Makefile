@@ -2,7 +2,7 @@ NAME	=	Sully
 
 SRC		=	Sully.s
 
-CC		=	gcc
+CC		=	clang
 #CFLAGS	=	-nostartfiles -no-pie
 
 AS		=	nasm
