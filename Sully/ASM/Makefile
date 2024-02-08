@@ -42,11 +42,11 @@ vtest:		$(NAME)
 
 diff:		$(NAME)
 			./$(NAME)
-			diff -y -s $(SRC) Sully5.s
-			diff -y -s $(SRC) Sully4.s
-			diff -y -s $(SRC) Sully3.s
-			diff -y -s $(SRC) Sully2.s
-			diff -y -s $(SRC) Sully1.s
+			-diff -y $(SRC) Sully5.s
+			-diff -y $(SRC) Sully4.s
+			-diff -y $(SRC) Sully3.s
+			-diff -y $(SRC) Sully2.s
+			-diff -y $(SRC) Sully1.s
 
 
 debug:

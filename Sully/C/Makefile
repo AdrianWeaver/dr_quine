@@ -40,10 +40,11 @@ vtest:		$(NAME)
 
 diff:		$(NAME)
 			./$(NAME)
-			diff -y -s $(SRC) Sully4.c
-			diff -y -s $(SRC) Sully3.c
-			diff -y -s $(SRC) Sully2.c
-			diff -y -s $(SRC) Sully1.c
+			-diff -y $(SRC) Sully5.c
+			-diff -y $(SRC) Sully4.c
+			-diff -y $(SRC) Sully3.c
+			-diff -y $(SRC) Sully2.c
+			-diff -y $(SRC) Sully1.c
 
 .PHONY: all, clean, fclean, re, test, vtest, diff
 

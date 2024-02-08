@@ -17,9 +17,10 @@ fclean:		clean
 
 diff:		
 			@$(RUNNER) $(SRC)
-			diff -y -s $(SRC) Sully4.py
-			diff -y -s $(SRC) Sully3.py
-			diff -y -s $(SRC) Sully2.py
-			diff -y -s $(SRC) Sully1.py
+			-diff -y $(SRC) Sully5.py
+			-diff -y $(SRC) Sully4.py
+			-diff -y $(SRC) Sully3.py
+			-diff -y $(SRC) Sully2.py
+			-diff -y $(SRC) Sully1.py
 
 .PHONY: all, test, diff
